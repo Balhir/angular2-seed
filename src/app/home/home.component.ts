@@ -8,5 +8,15 @@ import { Employee } from '../models/employee.model';
 })
 export class HomeComponent {
   languages = ['English', 'Spanish', 'Other'];
-  model = new Employee('Maciej', 'Lewandowski', true, 'w2', 'English');
+  model = new Employee('Maciej', 'Lewandowski', true, 'w2', 'default');
+  hasPrimaryLanguageError = false;
+
+  onBlurValidatePrimaryLanguage(value): void {
+    if (value === 'default') {
+      this.hasPrimaryLanguageError = true;
+    }
+    else {
+      this.hasPrimaryLanguageError = false;
+    }
+  }
 }
